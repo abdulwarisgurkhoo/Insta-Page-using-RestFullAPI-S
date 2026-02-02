@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit a Post</title>
+</head>
+<body>
+    <h3>ENTER THE MODIFICATIONS WE WANT TO MAKE IN YOUR CONTENT</h3>
+    <p>POST ID :-<%=post.id%></p><br>
+    <p>post username :- @<%=post.username%></p><br>
+    <hr>
+    <form method="post" action="http://localhost:8080/post/<%=post.id%>?_method=PATCH">
+        <textarea rows="18" cols="22"name="content" id="content"><%=post.content%></textarea>
+         <br>
+         <button type="submit">submit</button>
+    </form>
+</body>
+</html>

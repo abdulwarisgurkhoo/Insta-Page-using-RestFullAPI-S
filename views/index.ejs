@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIN INSTA PAGE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .head {
+        background-color: #262626;
+        /* Dark background for visibility */
+        display: flex;
+        flex-direction: column;
+        /* Stacks image and text vertically */
+        align-items: center;
+        /* Centers items horizontally */
+        justify-content: center;
+        /* Centers items vertically if height is set */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .head img {
+        border-radius: 50%;
+        /* Optional: gives that circular Instagram look */
+        margin-bottom: 10px;
+    }
+
+    .head h1 {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 1px;
+    }
+</style>
+
+<body>
+    <div class="head">
+        <img src="insta.jpeg" alt="instagram logo" height="110" width="110">
+        <h1 style="color: white">INSTAGRAM PAGE</h1>
+    </div>
+    <BR>
+    <% for (post of posts){%>
+        <div class="div">
+            <h2 class="id">
+                user id:- <%=post.id%>
+            </h2> <br>
+            <h2 class="username">
+                username :-@<%=post.username%>
+            </h2><br>
+            <h3 class="content">
+                content:-<%=post.content%>
+            </h3>
+            <a href="http://localhost:8080/post/show/<%=post.id%>">see in detail</a>
+            <a href="http://localhost:8080/post/<%=post.id%>/edit">edit</a>
+            <div>
+                <form method="post" action="http://localhost:8080/post/<%=post.id%>?_method=DELETE">
+                    <button>delete</button>
+                </form>
+            </div>
+
+            <hr>
+        </div>
+        <%}%>
+            <a href="http://localhost:8080/post/add">ADD NEW POST</a>
+</body>
+
+</html>
